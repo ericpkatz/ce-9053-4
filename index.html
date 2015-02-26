@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <title>{{title}}</title>
+</head>
+<body>
+  <div class="container">
+    <div class="alert alert-success">Hello World</div>
+    <ul class="list-group">
+        {{#fizzBuzzArray}}
+        <li class="list-group-item">{{.}}</li>
+        {{/fizzBuzzArray}}
+    </ul>
+  </div>
+  
+</body>
+</html>

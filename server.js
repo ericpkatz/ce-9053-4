@@ -1,11 +1,23 @@
 var fizzBuzz = require("ek_fb");
-var foo = require("foo");
 var fs = require("fs");
-fs.readFile("README.md", function(err, data){
-   console.log(data.toString()); 
-});
+var http = require("http");
+var Mustache = require("mustache");
 
-
-console.log(fs.readFile);
-console.log(fizzBuzz);
-console.log(foo);
+http.createServer(function(req, res){
+   var count = parseInt(req.url.substr(1));
+    var fizzBuzzArray = fizzBuzz.generate(count);
+    fs.readFile("index.html", function(err, data){
+        if(err)
+            res.end(err);
+        else{
+            var model = {
+               fizzBuzzArray : fizzBuzzArray,
+               title: "Fizz Buzz " + count
+            }
+            var output = Mustache.render(data.toString(), model);
+            //console.log(output);
+            res.end(output);
+        }
+        
+    });
+}).listen(process.env.PORT);
