@@ -11,7 +11,7 @@ http.createServer(function(req, res){
             res.end(err);
         else{
             var model = {
-               fizzBuzzArray : fizzBuzzArray,
+               fizzBuzzArray : fizzBuzzArray.reverse(),
                title: "Fizz Buzz " + count
             }
             var output = Mustache.render(data.toString(), model);
